@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kan du returnere?</title>
+</head>
+<body>
+    <div id="mainDiv"></div>
+    <button onclick="createAndShowHtml('indigo', 'green', 'Hallo verden', 30, 3, 'solid', 'indigo')">Test 1</button>
+    <button onclick="createAndShowHtml('red', 'gray', 'Hei på deg!', 20, 5, 'dotted', 'red')">Test 2</button>
+    <button onclick="createAndShowHtml('white', 'yellow', 'Get Academy', 10, 8, 'double', 'black')">Test 3</button>
+    <script>
+
+    function createAndShowHtml(color, backgroundColor, text, fontSize, borderSize, borderState, borderColor) {
+        document.getElementById('mainDiv').innerHTML = /*HTML*/`
+        <div ${createStyle(color, backgroundColor, fontSize, borderSize, borderState, borderColor)}>${text}</div>
+        `;
+    }
+
+    function createStyle(color, backgroundColor, fontSize, borderSize, borderState, borderColor) {
+        return `style="
+            ${createbackgroundColor(backgroundColor)} 
+            ${createFontSize(fontSize)}
+            ${createColor(color)} 
+            ${createBorder(borderSize, borderState, borderColor)}
+        "`
+    }
+
+    function createbackgroundColor(backgroundColor) {
+        return `background-color: ${backgroundColor};`
+    }
+
+    function createFontSize(fontSize) {
+        return `font-size: ${fontSize}px;`
+    }
+
+    function createColor(color) {
+        return `color: ${color};`
+    }
+
+    function createBorder(borderSize, borderState, borderColor) {
+        return `border: ${borderSize}px ${borderState} ${borderColor};`
+    }
+
+    </script>
+</body>
+</html>
